@@ -14,3 +14,30 @@
     font-family: verdana;
     font-size: 20px;
   }
+
+  #searchResults1{
+    background-color: white;
+    flex-wrap: wrap;
+  }
+
+  #searchResults2{
+    background-color: white;
+    flex-wrap: wrap;
+  }
+
+  #form{
+    background-color: white;
+    flex-wrap: wrap;
+  }
+
+  #experience {
+    background-color: white;
+  }
+
+  #awesome{
+    background-color: gray;
+  }
+
+  #likes{
+    background-color: lightgray;
+  }
