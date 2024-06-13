@@ -12,11 +12,15 @@ fetch("https://api.openbrewerydb.org/breweries")
 
 
 
-//submit function to allow user to sumbit an "Experince", with a rating, comments, and picture, function also populates name of bar in likes box.
+//submit function to allow user to sumbit an "Experince", with a rating, comments, and 1 picture, function also populates name of bar in likes box.
 
 
 
-//focus function that allows users to focus over liked bars and populate the data in 2nd likes bar with bar data as well as user rating and comments and photos.
+//focus function that allows users to focus over liked bars and populate the data in 2nd results bar with bar data as well as user rating and comments and photos.
+
+
+
+// click function that when the user clicks on the title it has an easter egg pop up (to be determined)
 
 
 
