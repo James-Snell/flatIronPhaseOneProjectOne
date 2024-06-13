@@ -4,5 +4,5 @@
 fetch("https://api.openbrewerydb.org/breweries")
 .then(r=> r.json())
 .then(bars =>{
-    consonle.log(bars)
+    console.log(bars)
 })
