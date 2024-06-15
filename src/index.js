@@ -33,7 +33,7 @@ function getRandom(bars) {
         });
         //Throws error if you cant find a brewery with given criteria
         if (filteredBars.length === 0) {
-            alert("No breweries found with the given criteria.");
+            alert("No Breweries found with the given information.");
             return;
         }
 
