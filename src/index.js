@@ -17,29 +17,53 @@ function getRandom(bars) {
     const formData = document.querySelector("#form")
     formData.addEventListener("submit", (e)=> {
         e.preventDefault()
-        console.log(e)
-        // take value of city, create new array of all cities that match, and from that new array get random. 
-        const randomObj = Math.floor(Math.random() * bars.length);
-        console.log(randomObj)
-        const randomBar = bars[randomObj]
-        console.log(randomBar) 
-
-        const results = document.querySelector(`#searchResults`)
-        const name = document.querySelector(`#name`)
-        const type = document.querySelector(`.type`)
-        const address = document.querySelector(`.address`)
-        const city = document.querySelector(`.city`)
-        const zip = document.querySelector(`.zip`)
-        const state = document.querySelector(`.state`)
-        const country = document.querySelector(`.country`)
-        const phone = document.querySelector(`.phone`)
-        const website = document.querySelector(`.web`)
-
-        name.textContent = randomBar.name
-        console.log(name)
-
         
-        console.log(name)
+        //Selects the search feilds in the form and accesses the data 
+        const zipInput = document.querySelector(`#fzip`).value.toLowerCase()
+        const cityInput = document.querySelector(`#fcity`).value.toLowerCase()
+        const stateInput = document.querySelector(`#ftype`).value.toLowerCase()
+
+        // Filters bars based on what was entered in the search feild.
+        let filteredBars = bars.filter(bar => {
+            return (
+                (cityInput === "" || bar.city.toLowerCase() === cityInput) &&
+                (zipInput === "" || bar.postal_code.toLowerCase().includes(zipInput)) &&
+                (stateInput === "" || bar.state.toLowerCase() === stateInput)
+            );
+        });
+        //Throws error if you cant find a brewery with given criteria
+        if (filteredBars.length === 0) {
+            alert("No breweries found with the given criteria.");
+            return;
+        }
+
+        // takes  calcuates a index based on the length of the API data using its length
+        const randomObj = Math.floor(Math.random() * filteredBars.length);
+        const randomBar = filteredBars[randomObj] // selects random obj by the index
+
+        //selecting all needed elements of HTML to Manipulate 
+        const name = document.querySelector(`#name`)
+        const type = document.querySelector(`#brew`)
+        const address = document.querySelector(`#address`)
+        const city = document.querySelector(`#city`)
+        const zip = document.querySelector(`#zip`)
+        const state = document.querySelector(`#state`)
+        const country = document.querySelector(`#country`)
+        const phone = document.querySelector(`#phone`)
+        const website = document.querySelector(`#web`)
+        //Need function that if value equals null or undefinded. says "Unavaliable"
+
+
+        //adding text content to search results with correct values from API
+        name.textContent = `Name: ${randomBar.name}`
+        type.textContent = `Type of Brewery: ${randomBar.brewery_type}`
+        address.textContent = `Address: ${randomBar.address_1}`
+        city.textContent = `City: ${randomBar.city}`
+        zip.textContent = `Zip Code: ${randomBar.postal_code}`
+        state.textContent = `State: ${randomBar.state}`
+        country.textContent = `Country: ${randomBar.country}`
+        phone.textContent = `Phone: ${randomBar.phone}`
+        website.textContent = `Website: ${randomBar.website}`
         
     })
     
@@ -56,10 +80,16 @@ function getRandom(bars) {
 
 // focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
 
-
+function easterEgg(){
+    const title = document.querySelector(`.center`)
+    title.addEventListener("focus",(e) => {
+        e.target.hidden.textContent = "Please Drink Responsibly"
+    })
+}
 
 //main function that has a submit, click, and focus event listener that calls the function everytime. 
 
 function main(bars){
     getRandom(bars)
+    easterEgg()
 }
