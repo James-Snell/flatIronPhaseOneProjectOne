@@ -14,10 +14,10 @@ function getRandom(bars) {
     formData.addEventListener("submit", (e)=> {
         e.preventDefault()
         
-        //Selects the search fields in the form and accesses the data 
+        //Selects the search feilds in the form and accesses the data 
         const zipInput = document.querySelector(`#fzip`).value.toLowerCase()
         const cityInput = document.querySelector(`#fcity`).value.toLowerCase()
-        const stateInput = document.querySelector(`#fstate`).value.toLowerCase()
+        const stateInput = document.querySelector(`#ftype`).value.toLowerCase()
 
         // Filters bars based on what was entered in the search feild.
         let filteredBars = bars.filter(bar => {
@@ -27,7 +27,6 @@ function getRandom(bars) {
                 (stateInput === "" || bar.state.toLowerCase() === stateInput)
             );
         });
-
         //Throws error if you cant find a brewery with given criteria
         if (filteredBars.length === 0) {
             alert("No Breweries found with the given information.");
@@ -58,9 +57,9 @@ function getRandom(bars) {
         state.textContent = `State: ${randomBar.state}`
         country.textContent = `Country: ${randomBar.country}`
         
+    })
     
-    
-})
+}
 
 
 //submit function to allow user to sumbit an "Experince", with a rating, comments, and 1 picture, function also populates name of bar in likes box.
@@ -71,23 +70,6 @@ likeButton.addEventListener("submit", (e) => {
 })   
 
 
-<<<<<<< HEAD
-function posty(brewery){
-    
-    fetch("http://localhost:3000/bars",{
-        method: "POST",
-        headers: {
-            "Content-Type": 'applications/json'
-        },
-        body:JSON.stringify(brewery)
-    })
-    .then(res => res.json())
-    .then(brewery => console.log(brewery))
-
-}
-
-
-=======
 function handleSubmit(e){
     //collects all data and adds them to a new obj
     const name = document.querySelector(`#name`)
@@ -106,7 +88,6 @@ function handleSubmit(e){
     const newState = state.textContent.slice(7)
     const newCountry = country.textContent.slice(9)
     
->>>>>>> justins
 
     //creates new object with data from results as well as data that is inserted from experince 
     const likedBar = {
@@ -144,16 +125,13 @@ fetch("http://localhost:3000/bars")
 .then(bars => {
     bars.forEach((bars)=> {
     displayName(bars)
-    })    
+    })
+    
 })
 
-<<<<<<< HEAD
-//function that displays the name of the bar (from search results) everytime the "liked" button is clicked
-=======
 */
 
 //function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
->>>>>>> justins
 function displayName(bars){
     const name = document.createElement("h4")
     const favorites = document.querySelector("#likes")
@@ -187,14 +165,6 @@ function handleClick(bars){
     comment.textContent = `Comments: ${bars.comment}`
 }
 
-<<<<<<< HEAD
-
-}
-
-
-
-=======
->>>>>>> justins
 // focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
 
 // function easterEgg(){

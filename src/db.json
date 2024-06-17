@@ -12,58 +12,6 @@
       "score": "",
       "comment": "",
       "image_url": ""
-    },
-    {
-      "id": "9c23",
-      "name": "10 Barrel Brewing Co - Bend Pub",
-      "brewery_type": "large",
-      "address_1": "62950 NE 18th St",
-      "city": "Bend",
-      "postal_code": "97701",
-      "state": "Oregon",
-      "country": "United States",
-      "score": "",
-      "comment": "",
-      "image_url": ""
-    },
-    {
-      "id": "a009",
-      "name": "(405) Brewing Co",
-      "brewery_type": "micro",
-      "address_1": "1716 Topeka St",
-      "city": "Norman",
-      "postal_code": "73069-8224",
-      "state": "Oklahoma",
-      "country": "United States",
-      "score": "",
-      "comment": "",
-      "image_url": ""
-    },
-    {
-      "id": "6ed0",
-      "name": "13 Below Brewery",
-      "brewery_type": "micro",
-      "address_1": "7391 Forbes Rd",
-      "city": "Cincinnati",
-      "postal_code": "45233-1013",
-      "state": "Ohio",
-      "country": "United States",
-      "score": "",
-      "comment": "",
-      "image_url": ""
-    },
-    {
-      "id": "2312",
-      "name": "16 Stone Brewpub",
-      "brewery_type": "brewpub",
-      "address_1": "9542 Main St",
-      "city": "Holland Patent",
-      "postal_code": "13354",
-      "state": "New York",
-      "country": "United States",
-      "score": "",
-      "comment": "",
-      "image_url": ""
     }
   ]
 }
