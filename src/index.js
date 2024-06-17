@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // Code Here
 
 //Fetching the data from the api
@@ -130,4 +128,3 @@ function handleClick(bars){
 //         e.target.hidden.textContent = "Please Drink Responsibly"
 //     })
 //}
->>>>>>> justins
