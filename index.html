@@ -13,27 +13,21 @@
         <div class="center">Night Out</div>
     </div>
       
-
     <h5>Search</h5>
-
-
-
-    <!-- <input type="text" id="comment" name="comment" value="I'm a text field" /> -->
-
 
     <form id="form">
         <p>Please enter one or more fields</p>
         <br>
+        <label id="tz">Zip:</label><br>
+        <input type="text" id="fzip" name="zip">
+        <br>
         <label id="tc">City: </label><br>
-        <input type="text" id="fcity" value="">
+        <input type="text" id="fcity" name="city">
         <br>
-        <label id="tn">Zip:</label><br>
-        <input type="text" id="fzip" value="">
-        <br>
-        <label id="tt">Type: </label><br>
-        <input type="text" id="ftype" value="">
+        <label id="ts">State: </label><br>
+        <input type="text" id="ftype" name="state">
         <br><br>
-        <button type="button">Get Random</button>
+        <input type="submit" id="submit" value="Get Random">
     </form>
 
     <div id="searchResults">
@@ -73,7 +67,7 @@
     </div>
 
     <div id="likeResults">
-        <p>Like Results</p>
+        <p>Bar Highlight</p>
         
         <p id="lname">Name:</p>
         <p id="lbrew">Type of Brewery:</p>
@@ -82,8 +76,6 @@
         <p id="lzip">Zip Code:</p>
         <p id="lstate">State:</p>
         <p id="lcountry">Country:</p>
-        <p id="lphone">Phone:</p>
-        <p id="lweb">Website:</p>
         <p id="lscore">Review:</p>
         <p id="lcomment">Comments:</p>
   

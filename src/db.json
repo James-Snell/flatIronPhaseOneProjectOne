@@ -1,3 +1,16 @@
-[
-    
-]
+{
+    "bars": [
+        {
+        "id": "5128df48-79fc-4f0f-8b52-d06be54d0cec",
+        "name": "(405) Brewing Co",
+        "brewery_type": "micro",
+        "address_1": "1716 Topeka St",
+        "city": "Norman",
+        "postal_code": "73069-8224",
+        "state": "Oklahoma",
+        "country": "United States",
+        "score": "10/10",
+        "comments": "Had a fucking blast bitch"
+        }
+    ]
+}
