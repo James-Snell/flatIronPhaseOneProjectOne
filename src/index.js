@@ -60,7 +60,8 @@ function getRandom(bars) {
         
     
     
-})
+    })
+}
 
 
 //submit function to allow user to sumbit an "Experince", with a rating, comments, and 1 picture, function also populates name of bar in likes box.
@@ -71,23 +72,6 @@ likeButton.addEventListener("submit", (e) => {
 })   
 
 
-<<<<<<< HEAD
-function posty(brewery){
-    
-    fetch("http://localhost:3000/bars",{
-        method: "POST",
-        headers: {
-            "Content-Type": 'applications/json'
-        },
-        body:JSON.stringify(brewery)
-    })
-    .then(res => res.json())
-    .then(brewery => console.log(brewery))
-
-}
-
-
-=======
 function handleSubmit(e){
     //collects all data and adds them to a new obj
     const name = document.querySelector(`#name`)
@@ -106,7 +90,6 @@ function handleSubmit(e){
     const newState = state.textContent.slice(7)
     const newCountry = country.textContent.slice(9)
     
->>>>>>> justins
 
     //creates new object with data from results as well as data that is inserted from experince 
     const likedBar = {
@@ -137,23 +120,8 @@ function posty(likedBar){
     .then(bars => displayName(bars))
 }
 
-/*
-//fetching data from db.json
-fetch("http://localhost:3000/bars")
-.then(r=> r.json())
-.then(bars => {
-    bars.forEach((bars)=> {
-    displayName(bars)
-    })    
-})
-
-<<<<<<< HEAD
-//function that displays the name of the bar (from search results) everytime the "liked" button is clicked
-=======
-*/
 
 //function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
->>>>>>> justins
 function displayName(bars){
     const name = document.createElement("h4")
     const favorites = document.querySelector("#likes")
@@ -187,19 +155,17 @@ function handleClick(bars){
     comment.textContent = `Comments: ${bars.comment}`
 }
 
-<<<<<<< HEAD
-
-}
-
-
-
-=======
->>>>>>> justins
 // focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
 
-// function easterEgg(){
-//     const title = document.querySelector(`.center`)
-//     title.addEventListener("focus",(e) => {
-//         e.target.hidden.textContent = "Please Drink Responsibly"
-//     })
-//}
+// Get the element using its class name
+const textContainer = document.querySelector('.center');
+
+// Add mouseover event listener
+textContainer.addEventListener('mouseover', function() {
+    textContainer.textContent = 'Please Drink Responsibly';
+});
+
+// Add mouseout event listener
+textContainer.addEventListener('mouseout', function() {
+    textContainer.textContent = 'Night Out';
+});

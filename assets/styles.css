@@ -3,32 +3,27 @@
     padding: 25px;
   }
 
-
   img { 
     width: 100%;
     height: 500px;
     opacity: 0.3;
   }
   
-
   h1 {
     color: white;
     text-align: center;
     
   }
   
-
   p {
     font-family: verdana;
     font-size: 20px;
   }
 
-
   #container{
     width: 100%;
     height: 300px;
   }
-
 
   #searchResults{
     background-color: white;
@@ -37,33 +32,27 @@
     float: left;
     
   }
-
-
-  #likeResults{
-    background-color: white;
-    width: 80%;
-    height: 475px;
-    float: left;
-  }
-
-
-  #form{
+  
+  #form1{
     background-color: lightgrey;
     width: 20%;
     height: 475px;
     float: left;
- 
-    
   }
-
-
+  
   #experience {
     background-color: rgb(152,133,88);
     float: left;
     width: 20%;
     height: 475px;
   }
-
+  
+  #likeResults{
+    background-color: white;
+    width: 80%;
+    height: 475px;
+    float: left;
+  }
 
   #awesome{
     background-color: rgb(152,133,88);
@@ -72,15 +61,13 @@
     
   }
 
-
   #likes{
     background-color: lightgray;
     width: 20%;
     height: 475px;
     float: left;
   }
-
-  
+ 
   #submit{
     margin-left: 40px;
     background-color: black;
@@ -109,7 +96,6 @@
   #tc, #tz, #ts {
     padding: 10px;
   }
-  
   
   #rate, #comments, #images{
     padding: 10px;
