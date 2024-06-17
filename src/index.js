@@ -10,7 +10,7 @@ fetch("https://api.openbrewerydb.org/breweries")
 
 //search function that allows users to input city,zip,and type, and populating 1 random bar within the parameters, in the results box everytime  
 function getRandom(bars) {
-    const formData = document.querySelector("#form")
+    const formData = document.querySelector("#form1")
     formData.addEventListener("submit", (e)=> {
         e.preventDefault()
         
@@ -45,8 +45,6 @@ function getRandom(bars) {
         const zip = document.querySelector(`#zip`)
         const state = document.querySelector(`#state`)
         const country = document.querySelector(`#country`)
-        const phone = document.querySelector(`#phone`)
-        const website = document.querySelector(`#web`)
         //Need function that if value equals null or undefinded. says "Unavaliable"
 
 
@@ -58,8 +56,6 @@ function getRandom(bars) {
         zip.textContent = `Zip Code: ${randomBar.postal_code}`
         state.textContent = `State: ${randomBar.state}`
         country.textContent = `Country: ${randomBar.country}`
-        phone.textContent = `Phone: ${randomBar.phone}`
-        website.textContent = `Website: ${randomBar.website}`
         
     })
     
@@ -67,19 +63,73 @@ function getRandom(bars) {
 
 
 //submit function to allow user to sumbit an "Experince", with a rating, comments, and 1 picture, function also populates name of bar in likes box.
+const likeButton = document.querySelector(`#experience`)
+likeButton.addEventListener("submit", (e) => {
+    e.preventDefault()
+    handleSubmit(e)
+})   
 
 
+function handleSubmit(e){
+    //collects all data and adds them to a new obj
+    const name = document.querySelector(`#name`)
+    const type = document.querySelector(`#brew`)
+    const address = document.querySelector(`#address`)
+    const city = document.querySelector(`#city`)
+    const zip = document.querySelector(`#zip`)
+    const state = document.querySelector(`#state`)
+    const country = document.querySelector(`#country`)
+    
+    const newName = name.textContent.slice(6)
+    const newType = type.textContent.slice(17)
+    const newAddress = address.textContent.slice(9)
+    const newCity = city.textContent.slice(6)
+    const newZip = zip.textContent.slice(10)
+    const newState = state.textContent.slice(7)
+    const newCountry = country.textContent.slice(9)
+    
 
+    //creates new object with data from results as well as data that is inserted from experince 
+    const likedBar = {
+        name: newName,
+        brewery_type: newType,
+        address_1: newAddress,
+        city: newCity,
+        postal_code: newZip,
+        state: newState,
+        country: newCountry,
+        score: e.target[`rate`].value,
+        comment: e.target[`comments`].value,
+        image_url: e.target[`images`].value
+        }
+    posty(likedBar)
+}
+
+function posty(likedBar){
+    console.log(likedBar)
+    fetch('http://localhost:3000/bars',{
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },   
+        body: JSON.stringify(likedBar)
+    })
+    .then(r => r.json())
+    .then(bars => displayName(bars))
+}
+
+/*
 //fetching data from db.json
 fetch("http://localhost:3000/bars")
 .then(r=> r.json())
 .then(bars => {
-    //console.log(bars)
     bars.forEach((bars)=> {
     displayName(bars)
     })
     
 })
+
+*/
 
 //function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
 function displayName(bars){
@@ -112,13 +162,8 @@ function handleClick(bars){
     state.textContent = `State: ${bars.state}`
     country.textContent = `Country: ${bars.country}`
     score.textContent = `Rating: ${bars.score}`
-    comment.textContent = `Comments: ${bars.comments}`
+    comment.textContent = `Comments: ${bars.comment}`
 }
-
-
-
-
-
 
 // focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
 
