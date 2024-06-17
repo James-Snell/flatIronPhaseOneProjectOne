@@ -4,13 +4,9 @@
 fetch("https://api.openbrewerydb.org/breweries")
 .then(r=> r.json())
 .then(bars => {
-    //main function holding all event listeners
-    console.log(bars)
-    main(bars)
+    getRandom(bars)
 })
 
-//Implement drop down menu for type search with all possible types of bars included in data
-//on website it has a list of all the types
 
 //search function that allows users to input city,zip,and type, and populating 1 random bar within the parameters, in the results box everytime  
 function getRandom(bars) {
@@ -74,22 +70,61 @@ function getRandom(bars) {
 
 
 
-//click function that allows users to focus over liked bars and populate the data in 2nd results bar with bar data as well as user rating and comments and photos.
+//fetching data from db.json
+fetch("http://localhost:3000/bars")
+.then(r=> r.json())
+.then(bars => {
+    //console.log(bars)
+    bars.forEach((bars)=> {
+    displayName(bars)
+    })
+    
+})
+
+//function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
+function displayName(bars){
+    const name = document.createElement("h4")
+    const favorites = document.querySelector("#likes")
+    name.textContent = bars.name
+    favorites.append(name)
+    favorites.addEventListener("click",()=>{
+        handleClick(bars)
+    })
+}
+
+//click function that allows users to click on liked bars and populate the data in Bar Highlight box with bar data as well as user rating and comments and photos.
+function handleClick(bars){
+    const name = document.querySelector(`#lname`)
+    const type = document.querySelector(`#lbrew`)
+    const address = document.querySelector(`#laddress`)
+    const city = document.querySelector(`#lcity`)
+    const zip = document.querySelector(`#lzip`)
+    const state = document.querySelector(`#lstate`)
+    const country = document.querySelector(`#lcountry`)
+    const score = document.querySelector(`#lscore`)
+    const comment = document.querySelector(`#lcomment`)
+
+    name.textContent = `Name: ${bars.name}`
+    type.textContent = `Type of Brewery: ${bars.brewery_type}`
+    address.textContent = `Address: ${bars.address_1}`
+    city.textContent = `City: ${bars.city}`
+    zip.textContent = `Zip Code: ${bars.postal_code}`
+    state.textContent = `State: ${bars.state}`
+    country.textContent = `Country: ${bars.country}`
+    score.textContent = `Rating: ${bars.score}`
+    comment.textContent = `Comments: ${bars.comments}`
+}
+
+
+
 
 
 
 // focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
 
-function easterEgg(){
-    const title = document.querySelector(`.center`)
-    title.addEventListener("focus",(e) => {
-        e.target.hidden.textContent = "Please Drink Responsibly"
-    })
-}
-
-//main function that has a submit, click, and focus event listener that calls the function everytime. 
-
-function main(bars){
-    getRandom(bars)
-    easterEgg()
-}
+// function easterEgg(){
+//     const title = document.querySelector(`.center`)
+//     title.addEventListener("focus",(e) => {
+//         e.target.hidden.textContent = "Please Drink Responsibly"
+//     })
+//}
