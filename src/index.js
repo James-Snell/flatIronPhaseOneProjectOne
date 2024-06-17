@@ -14,10 +14,10 @@ function getRandom(bars) {
     formData.addEventListener("submit", (e)=> {
         e.preventDefault()
         
-        //Selects the search feilds in the form and accesses the data 
+        //Selects the search fields in the form and accesses the data 
         const zipInput = document.querySelector(`#fzip`).value.toLowerCase()
         const cityInput = document.querySelector(`#fcity`).value.toLowerCase()
-        const stateInput = document.querySelector(`#ftype`).value.toLowerCase()
+        const stateInput = document.querySelector(`#fstate`).value.toLowerCase()
 
         // Filters bars based on what was entered in the search feild.
         let filteredBars = bars.filter(bar => {
@@ -27,6 +27,7 @@ function getRandom(bars) {
                 (stateInput === "" || bar.state.toLowerCase() === stateInput)
             );
         });
+
         //Throws error if you cant find a brewery with given criteria
         if (filteredBars.length === 0) {
             alert("No Breweries found with the given information.");
@@ -61,12 +62,27 @@ function getRandom(bars) {
         phone.textContent = `Phone: ${randomBar.phone}`
         website.textContent = `Website: ${randomBar.website}`
         
-    })
     
-}
+    
+})
 
 
 //submit function to allow user to sumbit an "Experince", with a rating, comments, and 1 picture, function also populates name of bar in likes box.
+
+
+function posty(brewery){
+    
+    fetch("http://localhost:3000/bars",{
+        method: "POST",
+        headers: {
+            "Content-Type": 'applications/json'
+        },
+        body:JSON.stringify(brewery)
+    })
+    .then(res => res.json())
+    .then(brewery => console.log(brewery))
+
+}
 
 
 
@@ -77,11 +93,10 @@ fetch("http://localhost:3000/bars")
     //console.log(bars)
     bars.forEach((bars)=> {
     displayName(bars)
-    })
-    
+    })    
 })
 
-//function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
+//function that displays the name of the bar (from search results) everytime the "liked" button is clicked
 function displayName(bars){
     const name = document.createElement("h4")
     const favorites = document.querySelector("#likes")
@@ -116,7 +131,7 @@ function handleClick(bars){
 }
 
 
-
+}
 
 
 
