@@ -2,7 +2,7 @@
  # id */
 
  body {
-    background-color: lightblue;
+    background-color: tan;
   }
 
   img { 
@@ -22,36 +22,44 @@
     font-size: 20px;
   }
 
-  #searchResults1{
+  #searchResults{
     background-color: white;
-    width: 1000px;
+    width: 80%;
+    float: left;
    
   }
 
-  #searchResults2{
+  #likeResults{
     background-color: white;
-    
+    width: 80%;
+    float: left;
   }
 
   #form{
     background-color: white;
     /* text */
-    width: 200px;
+    width: 20%;
+    float: left;
     
   }
 
   #experience {
     background-color: white;
-    
+    float: left;
+    width: 100%;
   }
 
   #awesome{
     background-color: gray;
+    width: 100%;
+    float: left;
     
   }
 
   #likes{
     background-color: lightgray;
+    width: 20%;
+    float: left;
   }
 
   .center {
@@ -66,3 +74,4 @@
   .clearfix {
     overflow: auto;
   }
+  
