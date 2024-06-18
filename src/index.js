@@ -68,7 +68,7 @@ likeButton.addEventListener("submit", (e) => {
     e.preventDefault()
     handleSubmit(e)
 })   
-
+// Add function to make sure they cant save empty bar into favorites
 
 function handleSubmit(e){
     //collects all data and adds them to a new obj
@@ -117,11 +117,8 @@ function posty(likedBar){
     .then(r => r.json())
     .then(bars => displayName(bars))
 }
+// Add picture to favorites bars
 
-<<<<<<< HEAD
-
-=======
->>>>>>> justins
 //function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
 function displayName(bars){
     const name = document.createElement("h4")
@@ -157,7 +154,6 @@ function handleClick(bars){
 }
 
 // focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
-<<<<<<< HEAD
 
 // Get the element using its class name
 const textContainer = document.querySelector('.center');
@@ -171,12 +167,3 @@ textContainer.addEventListener('mouseover', function() {
 textContainer.addEventListener('mouseout', function() {
     textContainer.textContent = 'Night Out';
 });
-=======
- 
-// function easterEgg(){
-//     const title = document.querySelector(`.center`)
-//     title.addEventListener("focus",(e) => {
-//         e.target.hidden.textContent = "Please Drink Responsibly"
-//     })
-//}
->>>>>>> justins
