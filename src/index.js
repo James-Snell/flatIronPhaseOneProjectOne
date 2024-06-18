@@ -17,7 +17,7 @@ function getRandom(bars) {
         //Selects the search feilds in the form and accesses the data 
         const zipInput = document.querySelector(`#fzip`).value.toLowerCase()
         const cityInput = document.querySelector(`#fcity`).value.toLowerCase()
-        const stateInput = document.querySelector(`#ftype`).value.toLowerCase()
+        const stateInput = document.querySelector(`#fstate`).value.toLowerCase()
 
         // Filters bars based on what was entered in the search feild.
         let filteredBars = bars.filter(bar => {
@@ -66,8 +66,22 @@ function getRandom(bars) {
 const likeButton = document.querySelector(`#experience`)
 likeButton.addEventListener("submit", (e) => {
     e.preventDefault()
-    handleSubmit(e)
-})   
+
+    const numbers = e.target[`rate`].value
+    const words = e.target[`comments`].value
+    const pictures = e.target[`images`].value
+    const nameDiv = document.querySelector(`#name`)
+    const name = nameDiv.textContent
+
+console.log(name)
+    if(name === "Name:"){
+        alert("Please Get Random Bar")
+    } else if (numbers === "" && words === "" && pictures === ""){
+        alert("Please Share Your Experience")
+    } else {
+        handleSubmit(e)            
+    }
+})
 // Add function to make sure they cant save empty bar into favorites
 
 function handleSubmit(e){
@@ -87,7 +101,9 @@ function handleSubmit(e){
     const newZip = zip.textContent.slice(10)
     const newState = state.textContent.slice(7)
     const newCountry = country.textContent.slice(9)
-    
+    const newScore = e.target[`rate`].value
+    const newComment = e.target[`comments`].value
+    const newImage = e.target[`images`].value
 
     //creates new object with data from results as well as data that is inserted from experince 
     const likedBar = {
@@ -98,10 +114,12 @@ function handleSubmit(e){
         postal_code: newZip,
         state: newState,
         country: newCountry,
-        score: e.target[`rate`].value,
-        comment: e.target[`comments`].value,
-        image_url: e.target[`images`].value
-        }
+        score: newScore,
+        comment: newComment,
+        image_url: newImage
+    }
+
+
     posty(likedBar)
 }
 
@@ -119,7 +137,7 @@ function posty(likedBar){
 }
 // Add picture to favorites bars
 
-//function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
+//function that displays the name of the bar (from search results) everytime the "liked" button is clicked
 function displayName(bars){
     const name = document.createElement("h4")
     const favorites = document.querySelector("#likes")
@@ -151,7 +169,15 @@ function handleClick(bars){
     country.textContent = `Country: ${bars.country}`
     score.textContent = `Rating: ${bars.score}`
     comment.textContent = `Comments: ${bars.comment}`
+                    ${bars.image_url}
+
+    //jam wok
+    //
+    //create element to display image in 
+    //displaying ${bars.image_url}
+
 }
+
 
 // focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
 
