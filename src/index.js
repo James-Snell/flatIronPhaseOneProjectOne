@@ -118,7 +118,10 @@ function posty(likedBar){
     .then(bars => displayName(bars))
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> justins
 //function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
 function displayName(bars){
     const name = document.createElement("h4")
@@ -154,6 +157,7 @@ function handleClick(bars){
 }
 
 // focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
+<<<<<<< HEAD
 
 // Get the element using its class name
 const textContainer = document.querySelector('.center');
@@ -167,3 +171,12 @@ textContainer.addEventListener('mouseover', function() {
 textContainer.addEventListener('mouseout', function() {
     textContainer.textContent = 'Night Out';
 });
+=======
+ 
+// function easterEgg(){
+//     const title = document.querySelector(`.center`)
+//     title.addEventListener("focus",(e) => {
+//         e.target.hidden.textContent = "Please Drink Responsibly"
+//     })
+//}
+>>>>>>> justins
