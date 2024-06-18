@@ -1,5 +1,5 @@
 // Code Here
-
+//Clean Up Code
 //Fetching the data from the api
 fetch("https://api.openbrewerydb.org/breweries")
 .then(r=> r.json())
@@ -17,7 +17,7 @@ function getRandom(bars) {
         //Selects the search feilds in the form and accesses the data 
         const zipInput = document.querySelector(`#fzip`).value.toLowerCase()
         const cityInput = document.querySelector(`#fcity`).value.toLowerCase()
-        const stateInput = document.querySelector(`#ftype`).value.toLowerCase()
+        const stateInput = document.querySelector(`#fstate`).value.toLowerCase()
 
         // Filters bars based on what was entered in the search feild.
         let filteredBars = bars.filter(bar => {
@@ -33,7 +33,7 @@ function getRandom(bars) {
             return;
         }
 
-        // takes  calcuates a index based on the length of the API data using its length
+        // calcuates a index based on the length of the API data using its length
         const randomObj = Math.floor(Math.random() * filteredBars.length);
         const randomBar = filteredBars[randomObj] // selects random obj by the index
 
@@ -45,22 +45,17 @@ function getRandom(bars) {
         const zip = document.querySelector(`#zip`)
         const state = document.querySelector(`#state`)
         const country = document.querySelector(`#country`)
-        //Need function that if value equals null or undefinded. says "Unavaliable"
 
-
-        //adding text content to search results with correct values from API
-        name.textContent = `Name: ${randomBar.name}`
-        type.textContent = `Type of Brewery: ${randomBar.brewery_type}`
-        address.textContent = `Address: ${randomBar.address_1}`
-        city.textContent = `City: ${randomBar.city}`
-        zip.textContent = `Zip Code: ${randomBar.postal_code}`
-        state.textContent = `State: ${randomBar.state}`
-        country.textContent = `Country: ${randomBar.country}`
-        
+        //adding text content to search results with correct values from API as well as changing null values to equal Not Avaliable - check with Mariposa
+        name.textContent = randomBar.country === null ? 'Name: Not Avaliable' : `Name: ${randomBar.name}`
+        type.textContent = randomBar.country === null ? 'Type of Brewery: Not Avaliable' : `Type of Brewery: ${randomBar.brewery_type}`
+        address.textContent = randomBar.address === null ? 'Address: Not Avaliable' : `Address: ${randomBar.address_1}`
+        city.textContent = randomBar.city === null ? 'City: Not Avaliable' : `City: ${randomBar.city}`
+        zip.textContent = randomBar.zip === null ? 'Zip: Not Avaliable' : `Zip Code: ${randomBar.postal_code}`
+        state.textContent = randomBar.state === null ? 'State: Not Avaliable' : `State: ${randomBar.state}`
+        country.textContent = randomBar.country === null ? 'Country: Not Avaliable' : `Country: ${randomBar.country}`
     })
-    
 }
-
 
 //submit function to allow user to sumbit an "Experince", with a rating, comments, and 1 picture, function also populates name of bar in likes box.
 const likeButton = document.querySelector(`#experience`)
@@ -87,7 +82,9 @@ function handleSubmit(e){
     const newZip = zip.textContent.slice(10)
     const newState = state.textContent.slice(7)
     const newCountry = country.textContent.slice(9)
-    
+    const newScore = e.target[`rate`].value
+    const newComment = e.target[`comments`].value
+    const newImage = e.target[`images`].value
 
     //creates new object with data from results as well as data that is inserted from experince 
     const likedBar = {
@@ -98,9 +95,9 @@ function handleSubmit(e){
         postal_code: newZip,
         state: newState,
         country: newCountry,
-        score: e.target[`rate`].value,
-        comment: e.target[`comments`].value,
-        image_url: e.target[`images`].value
+        score: newScore,
+        comment: newComment,
+        image_url: newImage,
         }
     posty(likedBar)
 }
@@ -117,7 +114,6 @@ function posty(likedBar){
     .then(r => r.json())
     .then(bars => displayName(bars))
 }
-// Add picture to favorites bars
 
 //function that displays the name of the bar (from search resuklts) everytime the "liked" button is clicked
 function displayName(bars){
@@ -149,12 +145,13 @@ function handleClick(bars){
     zip.textContent = `Zip Code: ${bars.postal_code}`
     state.textContent = `State: ${bars.state}`
     country.textContent = `Country: ${bars.country}`
-    score.textContent = `Rating: ${bars.score}`
-    comment.textContent = `Comments: ${bars.comment}`
+    score.textContent =  bars.score === "" ? "Rating: No Rating Given" : `Rating: ${bars.score}`
+    comment.textContent = bars.comment === "" ? 'Comments: No Comments' : `Comments: ${bars.comment}`
+
+    //Display Image
 }
 
-// focus function that when the user clicks on the title it has an easter egg pop up (to be determined)
-
+// focus function that when the user clicks on the title it has an easter egg pop up 
 // Get the element using its class name
 const textContainer = document.querySelector('.center');
 
