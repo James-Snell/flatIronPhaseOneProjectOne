@@ -70,8 +70,6 @@ likeButton.addEventListener("submit", (e) => {
     const nameDiv = document.querySelector(`#name`)
     const name = nameDiv.textContent
    
-
-console.log(name)
     if(name === "Name:"){
         alert("Please Get Random Bar")
     } else if (numbers === "" && words === "" && pictures === ""){
@@ -177,8 +175,13 @@ function handleClick(bars){
     comment.textContent = bars.comment === "" ? 'Comments: No Comments' : `Comments: ${bars.comment}`
 
     const imageBox = document.querySelector(`#image`)
-    const image = document.createElement("img")
-    image.src = bars.image_url
+    const image = document.querySelector(`.img2`)
+
+    if(bars.image_url === "" || bars.image_url === " "){
+        image.src = "https://golf.com/wp-content/uploads/2023/12/GettyImages-1748588713.jpg?width=1280"
+    } else {
+        image.src = bars.image_url  
+    }
     imageBox.append(image)
 }
 
