@@ -69,6 +69,7 @@ likeButton.addEventListener("submit", (e) => {
     const pictures = e.target[`images`].value
     const nameDiv = document.querySelector(`#name`)
     const name = nameDiv.textContent
+   
 
 console.log(name)
     if(name === "Name:"){
@@ -162,6 +163,8 @@ function handleClick(bars){
     const country = document.querySelector(`#lcountry`)
     const score = document.querySelector(`#lscore`)
     const comment = document.querySelector(`#lcomment`)
+    const imgInput = document.querySelector("#images")
+
 
     name.textContent = `Name: ${bars.name}`
     type.textContent = `Type of Brewery: ${bars.brewery_type}`

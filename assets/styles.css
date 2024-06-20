@@ -5,14 +5,17 @@
 
   img { 
     width: 100%;
-    height: 500px;
-    opacity: 0.3;
   }
   
   h1 {
     color: white;
     text-align: center;
     
+  }
+
+  h2{
+    text-align: center;
+    text-decoration: underline;
   }
   
   p {
@@ -27,7 +30,7 @@
 
   #searchResults{
     background-color: white;
-    width: 60%;
+    width: 45%;
     height: 475px;
     float: left;
     
@@ -43,20 +46,21 @@
   #experience {
     background-color: rgb(152,133,88);
     float: left;
-    width: 20%;
+    width: 35%;
     height: 475px;
   }
   
   #likeResults{
     background-color: white;
-    width: 60%;
-    height: 475px;
+    width: 45%;
+    height: 750px;
     float: left;
   }
 
   #awesome{
     background-color: rgb(152,133,88);
     width: 100%;
+    font-size: 36px;
     float: left;
     
   }
@@ -64,7 +68,7 @@
   #likes{
     background-color: lightgray;
     width: 20%;
-    height: 475px;
+    height: 750px;
     float: left;
   }
  
@@ -103,15 +107,28 @@
     border: 10px;
     margin: 10px;
   }
-  
+
+  #likeImages{
+    background-color: rgb(152,133,88);
+    float: left;
+    width: 35%;
+    height: 750px;
+  }
+
   .center {
     position: absolute;
     top: 25%;
     width: 100%;
     text-align: center;
     font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
+  .img1{
+    width: 100%;
+    opacity: 0.3;
+
+  }
   .clearfix {
     overflow: auto;
   }
