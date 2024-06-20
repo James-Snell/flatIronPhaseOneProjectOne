@@ -171,13 +171,10 @@ function handleClick(bars){
     imgInput.textContent = `Fun times! ${bars.img}`
 
 
-<<<<<<< HEAD
     // const imageBox = document.querySelector(`#image`)
     // const image = document.createElement("img")
     // image.src = bars.image_url
     // imageBox.append(image)
-=======
->>>>>>> james
 }
 
 // focus function that when the user clicks on the title it has an easter egg pop up 
