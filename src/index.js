@@ -131,13 +131,22 @@ function posty(likedBar){
     .then(bars => displayName(bars))
 }
 
+fetch('http://localhost:3000/bars')
+.then(r=> r.json())
+.then(bars => {
+    bars.forEach((bars)=>{
+        displayName(bars)
+    })
+})
+
+
 //function that displays the name of the bar (from search results) everytime the "liked" button is clicked
 function displayName(bars){
     const name = document.createElement("h4")
     const favorites = document.querySelector("#likes")
     name.textContent = bars.name
     favorites.append(name)
-    favorites.addEventListener("click",()=>{
+    name.addEventListener("click",()=>{
         handleClick(bars)
     })
 }
@@ -164,10 +173,10 @@ function handleClick(bars){
     score.textContent =  bars.score === "" ? "Rating: No Rating Given" : `Rating: ${bars.score}`
     comment.textContent = bars.comment === "" ? 'Comments: No Comments' : `Comments: ${bars.comment}`
 
-    // const imageBox = document.querySelector(`#image`)
-    // const image = document.createElement("img")
-    // image.src = bars.image_url
-    // imageBox.append(image)
+    const imageBox = document.querySelector(`#image`)
+    const image = document.createElement("img")
+    image.src = bars.image_url
+    imageBox.append(image)
 }
 
 // focus function that when the user clicks on the title it has an easter egg pop up 
