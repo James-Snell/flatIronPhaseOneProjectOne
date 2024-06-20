@@ -8,6 +8,8 @@ fetch("https://api.openbrewerydb.org/breweries")
 })
 
 
+
+
 //search function that allows users to input city,zip,and type, and populating 1 random bar within the parameters, in the results box everytime  
 function getRandom(bars) {
     const formData = document.querySelector("#form1")
@@ -162,7 +164,10 @@ function handleClick(bars){
     score.textContent =  bars.score === "" ? "Rating: No Rating Given" : `Rating: ${bars.score}`
     comment.textContent = bars.comment === "" ? 'Comments: No Comments' : `Comments: ${bars.comment}`
 
-    //Display Image
+    // const imageBox = document.querySelector(`#image`)
+    // const image = document.createElement("img")
+    // image.src = bars.image_url
+    // imageBox.append(image)
 }
 
 // focus function that when the user clicks on the title it has an easter egg pop up 

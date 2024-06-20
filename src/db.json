@@ -12,6 +12,32 @@
       "score": "",
       "comment": "",
       "image_url": ""
+    },
+    {
+      "id": "b8eb",
+      "name": "14 Cannons Brewing Company",
+      "brewery_type": "micro",
+      "address_1": "31125 Via Colinas Ste 907",
+      "city": "Westlake Village",
+      "postal_code": "91362-3974",
+      "state": "California",
+      "country": "United States",
+      "score": "9/10",
+      "comment": "Kinda Loud but otherwise enjoyable",
+      "image_url": "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX1984977.jpg"
+    },
+    {
+      "id": "311c",
+      "name": "1717 Brewing Co",
+      "brewery_type": "micro",
+      "address_1": "322 E Court Ave",
+      "city": "Des Moines",
+      "postal_code": "50309-2015",
+      "state": "Iowa",
+      "country": "United States",
+      "score": "10/10",
+      "comment": "AWESOME PLACE",
+      "image_url": ""
     }
   ]
 }

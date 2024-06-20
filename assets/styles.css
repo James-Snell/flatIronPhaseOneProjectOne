@@ -49,7 +49,7 @@
   
   #likeResults{
     background-color: white;
-    width: 80%;
+    width: 60%;
     height: 475px;
     float: left;
   }
@@ -114,4 +114,11 @@
   
   .clearfix {
     overflow: auto;
+  }
+
+  #image {
+ 
+    float: left; 
+    width: 20%;
+    height: 475px;
   }
