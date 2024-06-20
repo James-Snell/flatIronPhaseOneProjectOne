@@ -67,6 +67,7 @@ likeButton.addEventListener("submit", (e) => {
     const pictures = e.target[`images`].value
     const nameDiv = document.querySelector(`#name`)
     const name = nameDiv.textContent
+   
 
 console.log(name)
     if(name === "Name:"){
@@ -135,6 +136,8 @@ function displayName(bars){
     const favorites = document.querySelector("#likes")
     name.textContent = bars.name
     favorites.append(name)
+    lphotos.append(images)
+
     favorites.addEventListener("click",()=>{
         handleClick(bars)
     })
@@ -151,6 +154,8 @@ function handleClick(bars){
     const country = document.querySelector(`#lcountry`)
     const score = document.querySelector(`#lscore`)
     const comment = document.querySelector(`#lcomment`)
+    const imgInput = document.querySelector("#images")
+
 
     name.textContent = `Name: ${bars.name}`
     type.textContent = `Type of Brewery: ${bars.brewery_type}`
@@ -161,8 +166,9 @@ function handleClick(bars){
     country.textContent = `Country: ${bars.country}`
     score.textContent =  bars.score === "" ? "Rating: No Rating Given" : `Rating: ${bars.score}`
     comment.textContent = bars.comment === "" ? 'Comments: No Comments' : `Comments: ${bars.comment}`
+    imgInput.textContent = `Fun times! ${bars.img}`
 
-    //Display Image
+
 }
 
 // focus function that when the user clicks on the title it has an easter egg pop up 
